@@ -1,13 +1,10 @@
-<form action="" ngForm #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
-  Username:
-  <input type="text" ngModel  name="un" #un="ngModel" class="form-control m-4" >
 
-  <button  class="btn btn-primary m-4" >submit</button>
+<form #reg="ngForm"  >
+  <label  class="m-2">username</label>
+  <input type="text" ngModel  name="username" minlength="5" #un="ngModel" class="2">
+  <label class="m-2" >password</label>
+  <input type="password" ngModel name="password" #pwd="ngModel" class="m-2" >
+
+  <button class="btn btn-primary m-2" (click)="submit(reg)">setValues</button>
+
 </form>
-
-<!-- <form action=""  #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
-  Username:
-  <input type="text" [(ngModel)]="username" name="un" #un="ngModel" class="form-control m-4" >
-
-  <button type="submit" class="btn btn-primary m-4">Submit</button>
-</form> -->

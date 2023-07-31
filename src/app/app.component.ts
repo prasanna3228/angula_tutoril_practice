@@ -12,14 +12,24 @@ export class AppComponent {
 
   constructor() {}
 
+  // @ViewChild("reg") p:any;
   
-  // submit(form:string){
-  //   console.log(form)
-  // }
-  
+  submit(reg:any){
+    console.log(reg)
+    console.log('1')
+    if (reg.valid) {
+      // Access the form values
+      const username = reg.value.username;
+      const password = reg.value.password;
+      console.log('Username:', username);
+      console.log('Password:', password);
+    }
+    // reg.setValue(
+    //   {
+    //     "username":"john",
+    //     "password":"123456789"
+    //   }
+    // )
 
-  submit(loginForm: NgForm) {
-    console.log(loginForm)
-  }
-
+}
 }
