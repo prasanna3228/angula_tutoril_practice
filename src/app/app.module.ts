@@ -6,9 +6,8 @@ import { AppComponent } from './app.component';
 
 import { TodoService } from './todo.service';
 import { FormsModule } from '@angular/forms';
-import { ListComponent } from './list/list.component';
 @NgModule({
-  declarations: [AppComponent, ListComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [TodoService],
   bootstrap: [AppComponent],

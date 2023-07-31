@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild ,AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ANGULARTUTORIAL';
+  // un: string = 'someStringValue';
 
   constructor() {}
 
-  clients = ['client1', 'client2', 'client3'];
+  
 
-  employees = ['employe 1', 'employe 2', 'employe 3'];
+  show(fc: any, p: any, group: any) {
+    console.log(fc);
+    console.log(p);
+    console.log(group);
+  }
+
+  
+
 }

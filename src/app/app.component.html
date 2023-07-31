@@ -1,9 +1,22 @@
-<h1>App component</h1>
+<form action="" class="m-4">
+  <div ngModelGroup #group="ngModelGroup">
+   
+    <label for="" class="m-2">USER name:</label>
+    <input required minlength="3"
+      type="text"
+      class="form-control w-50 m-4" 
+      ngModel name="uname" #un="ngModel" 
+    />
+    <p *ngIf="un.touched&&un.errors?.['required']">User name required</p>
+    <p *ngIf="un.touched&&un.errors?.['minlength']">user name container mini 3 letters requi*</p>
+    <label for="" class="m-2">Password:</label>
+    <input  required minlength="8"
+      type="password"
+      class="form-control w-50 m-4"
+      ngModel name="pws" #p="ngModel" 
+    />
+    <button class="ml-4" (click)="show(un, p, group)">click</button>
+  </div>
+</form>
 
-<app-list [list]="clients">
-  <h1>clientss</h1>
-</app-list>
 
-<app-list [list1]="employees">
-  <h1>Employess</h1>
-</app-list>
