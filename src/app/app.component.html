@@ -1,22 +1,13 @@
-<form action="" class="m-4">
-  <div ngModelGroup #group="ngModelGroup">
-   
-    <label for="" class="m-2">USER name:</label>
-    <input required minlength="3"
-      type="text"
-      class="form-control w-50 m-4" 
-      ngModel name="uname" #un="ngModel" 
-    />
-    <p *ngIf="un.touched&&un.errors?.['required']">User name required</p>
-    <p *ngIf="un.touched&&un.errors?.['minlength']">user name container mini 3 letters requi*</p>
-    <label for="" class="m-2">Password:</label>
-    <input  required minlength="8"
-      type="password"
-      class="form-control w-50 m-4"
-      ngModel name="pws" #p="ngModel" 
-    />
-    <button class="ml-4" (click)="show(un, p, group)">click</button>
-  </div>
+<form action="" ngForm #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
+  Username:
+  <input type="text" ngModel  name="un" #un="ngModel" class="form-control m-4" >
+
+  <button  class="btn btn-primary m-4" >submit</button>
 </form>
 
+<!-- <form action=""  #loginForm="ngForm" (ngSubmit)="submit(loginForm)">
+  Username:
+  <input type="text" [(ngModel)]="username" name="un" #un="ngModel" class="form-control m-4" >
 
+  <button type="submit" class="btn btn-primary m-4">Submit</button>
+</form> -->

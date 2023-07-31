@@ -1,4 +1,5 @@
 import { Component, ViewChild ,AfterViewInit} from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,13 @@ export class AppComponent {
   constructor() {}
 
   
-
-  show(fc: any, p: any, group: any) {
-    console.log(fc);
-    console.log(p);
-    console.log(group);
-  }
-
+  // submit(form:string){
+  //   console.log(form)
+  // }
   
+
+  submit(loginForm: NgForm) {
+    console.log(loginForm)
+  }
 
 }
