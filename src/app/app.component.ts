@@ -1,5 +1,6 @@
 import { Component, ViewChild ,AfterViewInit} from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm,FormGroup} from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
@@ -8,28 +9,22 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   title = 'ANGULARTUTORIAL';
-  // un: string = 'someStringValue';
-
+  
   constructor() {}
 
-  // @ViewChild("reg") p:any;
-  
-  submit(reg:any){
-    console.log(reg)
-    console.log('1')
-    if (reg.valid) {
-      // Access the form values
-      const username = reg.value.username;
-      const password = reg.value.password;
-      console.log('Username:', username);
-      console.log('Password:', password);
-    }
-    // reg.setValue(
-    //   {
-    //     "username":"john",
-    //     "password":"123456789"
-    //   }
-    // )
+ login=new FormGroup({
+    uname:new FormControl(),
+    password:new FormControl()
+ })
 
-}
+  
+  show(){
+    console.log(this.login)
+    console.log(this.login.value)
+    console.log(this.login.controls.uname.value)
+  }
+  
+
+    
+
 }

@@ -1,10 +1,6 @@
+<form action="" [formGroup]="login">
+  username: <input type="text" class="form-control w-50 m-2" formControlName="uname">
+  password: <input type="password" class="form-control w-50 m-2" formControlName="password">
 
-<form #reg="ngForm"  >
-  <label  class="m-2">username</label>
-  <input type="text" ngModel  name="username" minlength="5" #un="ngModel" class="2">
-  <label class="m-2" >password</label>
-  <input type="password" ngModel name="password" #pwd="ngModel" class="m-2" >
-
-  <button class="btn btn-primary m-2" (click)="submit(reg)">setValues</button>
-
+  <button (click)="show()" class="btn btn-primary w-20">show</button>
 </form>
