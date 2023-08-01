@@ -1,5 +1,5 @@
 import { Component, ViewChild ,AfterViewInit} from '@angular/core';
-import { FormControl, NgForm,FormGroup} from '@angular/forms';
+import { FormControl, NgForm,FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -10,21 +10,17 @@ import { FormControl, NgForm,FormGroup} from '@angular/forms';
 export class AppComponent {
   title = 'ANGULARTUTORIAL';
   
-  constructor() {}
+  // constructor() {}
 
- login=new FormGroup({
-    uname:new FormControl(),
-    password:new FormControl()
- })
-
+ regForm=new FormGroup({
+    uname:new FormControl("john",[Validators.required,Validators.minLength(8)]),
+    email:new FormControl("xyz@gmail.com",[Validators.required,Validators.email])
   
-  show(){
-    console.log(this.login)
-    console.log(this.login.value)
-    console.log(this.login.controls.uname.value)
-  }
+  })
   
-
+show(){
+  console.log(this.regForm)
+}
     
 
 }
