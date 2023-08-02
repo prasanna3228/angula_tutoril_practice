@@ -1,5 +1,5 @@
-import { Component, ViewChild ,AfterViewInit} from '@angular/core';
-import { FormControl, NgForm,FormGroup, Validators} from '@angular/forms';
+import { Component,OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -7,20 +7,50 @@ import { FormControl, NgForm,FormGroup, Validators} from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'ANGULARTUTORIAL';
-  
-  // constructor() {}
-
- regForm=new FormGroup({
-    uname:new FormControl("john",[Validators.required,Validators.minLength(8)]),
-    email:new FormControl("xyz@gmail.com",[Validators.required,Validators.email])
+ 
+  obs=new Observable((nums)=>{
+    nums.next(1),
+    nums.next(2),
+    nums.next(3),
+    nums.complete(),
+    nums.error("rgrgn")                       
+    
+   
+    // nums.error("ERRRROR")
   
   })
   
-show(){
-  console.log(this.regForm)
-}
-    
+  arr:any=[]
 
+  constructor( ){
+    setTimeout(()=>{
+      this.obs.subscribe(
+        {
+       next: (data:any)=>this.arr.push(data),
+        error: (err)=>console.log(err),
+        complete:()=>{
+          console.log(this.arr)
+          for (let i of this.arr ){
+              this.arr[i]+=100
+
+          }
+          console.log(this.arr)
+        }
+        }
+
+      )
+    },2000)
+    
+  }
+
+  ngOnInit():void{
+    // this.obs.subscribe(
+    //   data=>{console.log(data)},
+    //   err=>{console.log(err)},
+    //   ()=>{console.log('Completed')}
+    // )
+
+  }
 }
