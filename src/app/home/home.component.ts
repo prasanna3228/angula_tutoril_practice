@@ -6,24 +6,22 @@ import { TestService } from '../test.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  {
 
   constructor(private ts: TestService) { 
-    
+    this.ts.as.subscribe(
+      (data)=>{
+        console.log(data)
+      }
+      
+    )
   }
 
-  ngOnInit(): void {
+  send(){
     
-    this.ts.bs.subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
-    this.ts.rs.subscribe(
-      (data) => {
-        console.log(data);
-      }
-    );
-   
+    this.ts.as.complete()
+
   }
+
+ 
 }
