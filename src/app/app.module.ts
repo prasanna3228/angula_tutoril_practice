@@ -1,26 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 import {HttpClientModule} from '@angular/common/http';
-
 import {RouterModule, Router, Routes } from '@angular/router';
-import { TodoListComponent } from './todo-list/todo-list.component';
-import { TodoFormComponent } from './todo-form/todo-form.component';
-
-
+import { HomeComponent } from './home/home.component';
+import { TestService } from './test.service';
 
 
 
 
 
 @NgModule({
-  declarations: [AppComponent, TodoListComponent, TodoFormComponent, ],
+  declarations: [AppComponent, HomeComponent,  ],
   imports: [BrowserModule,
      AppRoutingModule,
       FormsModule,
@@ -28,7 +21,7 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
       HttpClientModule,
       RouterModule
     ],
-  providers: [],
+  providers: [TestService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
