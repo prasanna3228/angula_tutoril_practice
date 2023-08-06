@@ -1,0 +1,14 @@
+.containserclass {
+  padding-top: 5px;
+}
+
+.labelclass {
+  font-family: "time new roman", serif;
+}
+
+.cardheaderclass {
+  background-color: #217ab8;
+  color: white;
+  font-family: serif;
+  font-size: 1.5rem;
+}

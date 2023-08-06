@@ -4,23 +4,29 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import {RouterModule, Router, Routes } from '@angular/router';
+import { RouterModule, Router, Routes } from '@angular/router';
 
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { CrudComponent } from './crud/crud.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { TestService } from './test.service';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  declarations: [AppComponent,   ],
-  imports: [BrowserModule,
-     AppRoutingModule,
-      FormsModule,
-      ReactiveFormsModule,
-      HttpClientModule,
-      RouterModule
-    ],
-  providers: [TestService],
+  declarations: [AppComponent, CrudComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

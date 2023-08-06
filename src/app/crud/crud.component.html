@@ -1,0 +1,192 @@
+<div class="row">
+  <div class="col">
+    <!-- form -->
+    <div class="container-sm containserclass">
+      <div class="card">
+        <div class="card-header cardheaderclass">FORM DATA</div>
+        <div class="card-body">
+          <h5 class="card-title">Enter the form details</h5>
+
+          <form [formGroup]="formData" (ngSubmit)="OnSubmit()">
+            <div class="row">
+              <div class="col">
+                <label for="" class="labelclass">First Name</label>
+                <input
+                  formControlName="firstname"
+                  type="text"
+                  class="form-control"
+                  placeholder="First name"
+                  aria-label="First name"
+                />
+              </div>
+              <div class="col">
+                <label for="" class="labelclass">Last Name</label>
+                <input
+                  formControlName="lastname"
+                  type="text"
+                  class="form-control"
+                  placeholder="Last name"
+                  aria-label="Last name"
+                />
+              </div>
+              <div class="col">
+                <label for="" class="labelclass">Email</label>
+                <input
+                  formControlName="email"
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                  aria-label="Last name"
+                />
+              </div>
+            </div>
+            <div class="row" style="padding-top: 5px">
+              <div class="col">
+                <label for="" class="labelclass">Age</label>
+                <input
+                  formControlName="age"
+                  type="number"
+                  class="form-control"
+                  placeholder="age"
+                  aria-label="Last name"
+                />
+              </div>
+              <div class="col">
+                <label for="" class="labelclass">Mobile Number</label>
+                <input
+                  formControlName="mobilenumber"
+                  type="text"
+                  class="form-control"
+                  placeholder="Mobile numder"
+                  aria-label="Last name"
+                />
+              </div>
+              <div class="col">
+                <label for="" class="labelclass">Date of Birth</label>
+                <input
+                  formControlName="dob"
+                  type="date"
+                  class="form-control"
+                  placeholder="date of birth"
+                  aria-label="Last name"
+                />
+              </div>
+            </div>
+            <div>
+              <div class="row">
+                <div class="col">
+                  <label for="" class="labelclass">Native place</label>
+                  <input
+                    formControlName="place"
+                    type="text"
+                    class="form-control"
+                    placeholder="place"
+                    aria-label="Last name"
+                  />
+                </div>
+                <div class="col p-4">
+                  <mat-label>Gender</mat-label>
+                  <mat-form-field>
+                    <mat-select formControlName="gender">
+                      <mat-option
+                        *ngFor="let gender of genderList"
+                        [value]="gender"
+                      >
+                        {{ gender }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col" *ngIf="!isedit">
+                <button class="btn btn-primary" type="submit">Submit</button>
+              </div>
+              <div class="col" *ngIf="isedit">
+                <button
+                  class="btn btn-success"
+                  type="button"
+                  (click)="onSave()"
+                >
+                  Save
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  class="btn btn-danger"
+                  type="button"
+                  (click)="OnCancel()"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col" style="padding-top: 5px">
+    <!-- table -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Firstname</th>
+          <th scope="col">Lastname</th>
+          <th scope="col">Age</th>
+          <th scope="col">Place</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of listOfDate; let i = index">
+          <th>{{ i }}</th>
+          <td>{{ data.firstname }}</td>
+          <td>{{ data.lastname }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.place }}</td>
+          <td (click)="onEdit(i)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-pencil-square"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+              />
+            </svg>
+          </td>
+          <td (click)="onDelete(i)">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-trash"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"
+              />
+              <path
+                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"
+              />
+            </svg>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
