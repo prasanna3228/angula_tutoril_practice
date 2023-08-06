@@ -1,4 +1,22 @@
-<h1>APP COMPONENT</h1>
 
 
-<app-home></app-home>
+<button (click)="getmyData()">GET DATA</button>
+
+
+<div class="container">
+    <table border="1">
+        <tr>
+            <th>category</th>
+            <th>price</th>
+            <th>rating</th>
+            <th>id</th>
+        </tr>
+        <tr *ngFor="let data of data">
+            <td>{{data.category}}</td>
+            <td>{{data.price | currency:'INR' }}</td>
+            <td>{{data.rating.rate}}</td>
+            <td>{{data.id}}</td>
+    
+        </tr>
+    </table>
+</div>

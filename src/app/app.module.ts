@@ -3,17 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+
 import {RouterModule, Router, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+
+import {HttpClientModule} from '@angular/common/http'
+
 import { TestService } from './test.service';
 
 
-
-
-
 @NgModule({
-  declarations: [AppComponent, HomeComponent,  ],
+  declarations: [AppComponent,   ],
   imports: [BrowserModule,
      AppRoutingModule,
       FormsModule,
